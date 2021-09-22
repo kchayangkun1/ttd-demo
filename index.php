@@ -1,307 +1,315 @@
-<?php 
-    session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-<head>
-  <meta charset="utf-8">
-  <title>Gloves PFS </title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-  <!-- Favicons -->
-  <link href="img/logo.png" rel="icon">
-  <link href="img/logo.png" rel="apple-touch-icon">
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
-    rel="stylesheet">
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '7.2', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
 
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
 
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-  <!-- =======================================================
-    Theme Name: NewBiz
-    Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-</head>
-
-<body>
-  <?php 
-  include "config/init.php";
-  $cats_list = cat_list();
-  $reviewies_list = reviewies_list();
-  $products_sele_list = products_sele_list();
-?>
-  <!--==========================
-  Header
-  ============================-->
-  <header id="header" class="fixed-top">
-    <div class="container">
-
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a>
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li>
-            <a class="active" href="index">หน้าแรก</a>
-          </li>
-          <li><a href="about">เกี่ยวกับเรา</a></li>
-          <li class="drop-down pro-nav"><a>สินค้า</a>
-            <ul>
-              <?php 
-              foreach($cats_list as $cats_detail) : 
-                $catsub_list = cats_list($cats_detail->c_name);
-            ?>
-              <li class="drop-down ">
-                <a><?php echo $cats_detail->c_name; ?></a>
-                <ul>
-                  <?php foreach($catsub_list as $catsub_detail) : ?>
-                  <li><a
-                      href="product?id=<?php echo $catsub_detail->sub_id; ?>"><?php echo $catsub_detail->subcate_name; ?></a>
-                  </li>
-                  <?php endforeach ?>
-                </ul>
-
-              </li>
-              <?php endforeach ?>
-            </ul>
-          </li>
-          <li><a href="review">รีวิวสินค้า</a></li>
-          <li><a href="method">วิธีการสั่งซื้อสินค้า</a></li>
-          <li><a href="contact">ติดต่อเรา</a></li>
-
-
-          <li>
-            <a class="size-50" href="cart">
-              <i class="fa fa-shopping-cart " aria-hidden="true"></i>
-              <?php echo ( isset($_SESSION["cart"]['num']) and $_SESSION["cart"]['num'] > 0 ) ?  $_SESSION["cart"]['num'] : '';?>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-    </div>
-  </header><!-- #header -->
-
-  <!--==========================
-    Intro Section
-  ============================-->
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="img-responsive" src="img/banner.png" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="img-responsive" src="img/banner.png" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="img-responsive" src="img/banner.png" alt="Third slide">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
 
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
-  <main id="main">
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
 
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about">
-      <div class="container">
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
-        <div class="row about-extra">
-          <div class="col-lg-6 wow fadeInUp">
-            <img src="img/about.png" class="img-responsive about-img" alt="">
-          </div>
-          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-            <h4>เกี่ยวกับเรา</h4>
-            <p>
-              &nbsp;&nbsp;ห้างหุ้นส่วนจำกัด โปรเฟส ซัพพลาย ก่อตั้งกิจการขึ้นเมื่อปี พ.ศ. 2554
-              โดยดำเนินธุรกิจมาเป็นเวลากว่า 7 ปี
-              ซึ่งทางห้างหุ้นส่วนจำกัดให้บริการรับผลิต และจัดจำหน่ายถุงมือ
-              ภายใต้แบรนด์ลิขสิทธิ์ Glove PFS เพื่อรองรับความต้องการของลูกค้าที่มีมา-
-              อย่างต่อเนื่อง โดยมีตั้งแต่ถุงมือไนไตร (Nitrile) ถุงมือยางธรรมชาติ (Latex)
-              ชนิดมีแป้งและไม่มีแป้ง
 
-            </p>
-            <p>
-              &nbsp;&nbsp;ถุงมือทุกชนิดภายใต้แบรนด์ลิขสิทธิ์ Glove PFS เป็นสินค้าที่มีคุณภาพ
-              ผลิตตรงจากโรงงานและมีมาตรฐานส่งออกทั้งในและนอกประเทศ
-              ผ่านกระบวนการตรวจเทสลมรั่วทุกชิ้นก่อนบรรจุลงกล่องหรือถุง เราเน้นถุงมือที่มีคุณภาพในการสวมใส่ ทนทาน
-              ใช้งานเบาสบายมือ เพื่อตอบโจทย์ความคุ้มค่าที่มีคุณภาพและราคาที่ย่อมเยาว์
-            </p>
-
-            <a href="" class="button-about">Read More >></a>
-            <!-- <button type="submit" title="Send Message">Read More >></button> -->
-
-          </div>
-
-          <div class="col-md-12">
-            <div class="row">
-              <div class=" col-sm-3 col-md-3">
-                <div class="icon">
-                  <img src="img/icon/a1.png" alt="" class="img-responsive">
-                </div>
-              </div>
-              <div class="col-sm-3 col-md-3">
-                <div class="icon">
-                  <img src="img/icon/a2.png" alt="" class="img-responsive">
-                </div>
-              </div>
-              <div class="col-sm-3 col-md-3">
-                <div class="icon">
-                  <img src="img/icon/a3.png" alt="" class="img-responsive">
-                </div>
-              </div>
-              <div class="col-sm-3 col-md-3">
-                <div class="icon">
-                  <img src="img/icon/a4.png" alt="" class="img-responsive">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
 
-      </div>
-    </section><!-- #about -->
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-    <!--==========================
-      Services product
-    ============================-->
-    <section id="product" class="section-product">
-      <div class="container">
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-        <header class="section-header">
-          <h3>สินค้าใหม่</h3>
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
 
-        </header>
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
 
-        <div class="row">
-          <?php foreach($products_sele_list as $products_sele_detail) : ?>
-          <div class="col-md-3 mar-b">
-            <div class="card">
-              <a href="product-detail">
-                <div class="product-text">
-                  <img src="assets/images/product/cover/<?php echo $products_sele_detail->id; ?>/<?php echo $products_sele_detail->img_cover; ?>" alt="" class="img-responsive">
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
 
-                  <h2><?php echo $products_sele_detail->name; ?></h2>
-                  <!-- <p>Size S M L</p> -->
-                  <h1><?php echo $products_sele_detail->price; ?>.-</h1>
-                </div>
-              </a>
-            </div>
-          </div>
-          <?php endforeach ?>
-        </div>
-      </div>
-    </section><!-- #product -->
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-    <!--==========================
-      review Section
-    ============================-->
-    <section id="review" class="wow fadeIn">
-      <div class="container-fluid">
-        <header class="section-header">
-          <h3>รีวิวสินค้า</h3>
+	// Path to the system directory
+	define('BASEPATH', $system_path);
 
-        </header>
-        <div class="row">
-          <?php foreach($reviewies_list as $reviewies_detail) : ?>
-          <div class="col-md-4">
-            <div class="bg-w">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <img
-                    src="assets/images/review/<?php echo $reviewies_detail->id; ?>/<?php echo $reviewies_detail->img_cover; ?>"
-                    alt="" class="img-responsive review-img">
-                </div>
-                <div class="col-md-6 ">
-                  <div class="review-text">
-                    <h3><?php echo $reviewies_detail->name; ?></h3>
-                    <p>รีวิว : <?php echo $reviewies_detail->dsc; ?></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <?php endforeach ?>
-        </div>
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 
-        <div class="text-center">
-          <a href="review" class="button-review">View All</a>
-        </div>
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
 
-      </div>
-    </section><!-- #review -->
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
 
-  </main>
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
-  <!--==========================
-    Footer
-  ============================-->
-  <?php include 'footer.php';?>
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
-
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/mobile-nav/mobile-nav.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
-</body>
-
-</html>
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
