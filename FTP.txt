@@ -1,0 +1,59 @@
+--------- pfsglove  -----------
+#Website
+Website : www.glovepfs.com
+-----------------------------
+
+#Hosting & Domain | ผู้ให้บริการจดโดเมนโฮสติ้ง
+https://phalconhost.com/
+Username :pfshosting@gmail.com
+Password : @dminpfshosting
+-----------------------------------
+
+#Back Office | ระบบจัดการข้อมูลหลังบ้าน
+URL: https://glovepfs.com/login
+Username : admin
+Password : @minpfsglove
+------------------------------------
+
+#Gmail
+https://www.gmail.com/
+Username : pfshosting@gmail.com
+Password : @dminpfshosting 
+#web mail
+Username:   support@glovepfs.com
+Password:   Pot2HVx1r
+POP/IMAP Server:    mail.glovepfs.com
+SMTP Server:    mail.glovepfs.com port 587
+
+------------------------------------
+--------------------------------------------- Cloudflare.com ---------
+nameserver/NS
+change from
+vip071.phalconhost.com
+vip072.phalconhost.com
+to
+chip.ns.cloudflare.com
+princess.ns.cloudflare.com
+
+Login Cloudflare
+email: pfshosting@gmail.com
+password: >UesYm8}F5$QZ/T/
+
+--------------------------------------------- Google Analytics -----------
+https://analytics.google.com/
+Username : pfshosting@gmail.com
+Password : @dminpfshosting  
+-----------------------------------
+
+--------------------------------------------- FTP & DirectAdmin -----------
+IP: 43.229.78.96 | Direct Admin 43.229.78.96:2222
+Username: glovepfs
+Password: NEW=> 83Pz+#c5MqAKN'8X Created Date 18/05/2564 09:19
+Port: 21
+
+
+#Porsonal info
+สุชฎาร์ นะหีม Suchada Naheem
+500/12 ม.1 ถ.ฐานุตดมอนุสรณ์ ต.ควนลัง อ.หาดใหญ่ จ.สงขลา 90110
+0864884291
+3930600007711
