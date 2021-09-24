@@ -1,53 +1,21 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link href="<?=base_url('./assets/img/logo.png');?>" rel="icon">
-  <link href="<?=base_url('./assets/img/logo.png');?>" rel="apple-touch-icon">
-<link rel="stylesheet" href="<?=base_url('./assets/style.css');?>">
-</head>
-<header id="header" class="fixed-top">
-    <div class="container">
-      <div class="logo float-left">
-        <a href="<?=base_url('home');?>" class="scrollto"><img src="<?=base_url('./assets/img/logo.png');?>" alt="" class="img-fluid"></a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " <?php if($this->uri->segment(2)=='detail'){echo 'style="background-color: #1d3c51;"';}?>>
+<div class="d-flex justify-content-center  col-lg-2 col-2 col-sm-2 col-md-2 col-xl-2">
+      <a class="navbar-brand" href="">
+          <img id="img-product"class="d-block w-100" align="right" src="<?=base_url('assets/img/logo/logo.png');?>" alt="logo" style="width: 36%;  height: auto;"></a>
       </div>
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li>
-            <a class="<?=($this->uri->segment(1)=='home') ? 'active' : ''; ?>" href="<?=base_url('home/');?>">หน้าแรก</a>
+      <button id="toggler-navbar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse collapse navbar-collapse  col-10 col-sm-10  col-md-10 col-lg-10 col-xl-10 justify-content-end w-100" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+          
+            <a class="nav-link" href="<?=base_url('home/index');?>">HOME <span class="sr-only">(current)</span></a>
           </li>
-          <li><a class="<?=($this->uri->segment(1)=='about') ? 'active' : ''; ?>" href="<?=base_url('about/');?>">เกี่ยวกับเรา</a></li>
-          <li class="drop-down pro-nav"><a>สินค้า </a>
-            <ul>
-              <?php 
-              foreach($cats_list as $cats_detail) : 
-                $catsub_list = $this->Cart_model->cats_list($cats_detail['c_name']);
-            ?>
-              <li class="drop-down ">
-                <a><?=$cats_detail['c_name']; ?></a>
-                <ul>
-                  <?php foreach($catsub_list as $catsub_detail) : ?>
-                  <li>
-                    <a class="<?=($this->uri->segment(3)==$catsub_detail['sub_id']) ? 'active' : ''; ?>" href="<?=base_url('product/page/'.$catsub_detail['sub_id'])?>"><?=$catsub_detail['subcate_name'];?></a>
-                  </li>
-                  <?php endforeach ?>
-                </ul>
-              </li>
-              <?php endforeach ?>
-            </ul>
-          </li>
-          <li><a class="<?=($this->uri->segment(1)=='review') ? 'active' : ''; ?>" href="<?=base_url('review/page/');?>">รีวิวสินค้า</a></li>
-          <li><a class="<?=($this->uri->segment(1)=='howtoorder') ? 'active' : ''; ?>" href="<?=base_url('howtoorder/');?>">วิธีการสั่งซื้อสินค้า</a></li>
-          <li><a class="<?=($this->uri->segment(1)=='contact') ? 'active' : ''; ?>" href="<?=base_url('contact');?>">ติดต่อเรา</a></li>
-          <li>
-            <a class="size-50" class="<?=($this->uri->segment(1)=='cart') ? 'active' : ''; ?>" href="<?=base_url('cart/');?>">
-              <i class="fa fa-shopping-cart " aria-hidden="true"></i>
-              <?php echo (isset($_SESSION["cart"]['num']) and $_SESSION["cart"]['num'] > 0 ) ?  $_SESSION["cart"]['num'] : '';?>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url('product/category');?>">PRODUCT</a>
           </li>
         </ul>
-      </nav>
-    </div>
-  </header>
+      </div>
+    </nav>
+    <!-- <?=base_url('assets/img/logo/logo.png');?> -->

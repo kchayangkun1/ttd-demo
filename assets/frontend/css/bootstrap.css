@@ -192,10 +192,10 @@ figure {
   margin: 0 0 1rem;
 }
 
-img {
+/* img {
   vertical-align: middle;
   border-style: none;
-}
+} */
 
 svg {
   overflow: hidden;
@@ -2543,8 +2543,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  /* background-color: #007bff;
+  border-color: #007bff; */
 }
 
 .btn-primary:hover {
@@ -4402,6 +4402,8 @@ input[type="button"].btn-block {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+  margin-left: 18rem;
+  /* margin-top: -2rem; */
 }
 
 @media (max-width: 575.98px) {
@@ -4482,6 +4484,7 @@ input[type="button"].btn-block {
     display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
+    border-bottom: 3px solid white;
   }
   .navbar-expand-md .navbar-toggler {
     display: none;
@@ -4529,12 +4532,24 @@ input[type="button"].btn-block {
     display: none;
   }
 }
-
+@media only screen and (max-width:812px) and (min-width:375px){
+	#toggler-navbar{
+		margin-top: 1px;
+	}
+	#img-product{
+		width: 1000rem;
+		height: auto;
+	}
+}
 @media (max-width: 1199.98px) {
   .navbar-expand-xl > .container,
   .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {
     padding-right: 0;
     padding-left: 0;
+  }
+  .col-lg-2 .col-2 .col-sm-2 .col-md-2 .col-xl-2{
+    width: 89%;
+    height: auto;
   }
 }
 
@@ -6776,9 +6791,7 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
-.bg-dark {
-  background-color: #343a40 !important;
-}
+
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
@@ -6932,9 +6945,12 @@ button.bg-dark:focus {
   display: inline-block !important;
 }
 
-.d-block {
+/* .d-block {
   display: block !important;
-}
+  width: 100%;
+  height: auto;
+  
+} */
 
 .d-table {
   display: table !important;
@@ -8071,9 +8087,9 @@ button.bg-dark:focus {
   width: 75% !important;
 }
 
-.w-100 {
+/* .w-100 {
   width: 100% !important;
-}
+} */
 
 .w-auto {
   width: auto !important;
@@ -8401,7 +8417,7 @@ button.bg-dark:focus {
   padding-right: 3rem !important;
 }
 
-.pb-5,
+/* .pb-5,
 .py-5 {
   padding-bottom: 3rem !important;
 }
@@ -8409,7 +8425,7 @@ button.bg-dark:focus {
 .pl-5,
 .px-5 {
   padding-left: 3rem !important;
-}
+} */
 
 .m-n1 {
   margin: -0.25rem !important;

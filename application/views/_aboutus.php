@@ -16,8 +16,10 @@
 	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
 	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
 	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
     <!-- Webpage Title -->
     <title>SHIRA Furniture</title>
+    
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -28,12 +30,10 @@
 	<link href="<?=base_url('assets/frontend/css/styles.css');?>" rel="stylesheet">
 	
 	<!-- Favicon  -->
-    <link rel="icon" href="assets\img\logo\logo.jpeg">
+    <link rel="icon" href="<?=base_url('assets/img/logo/logo.jpeg');?>">
 </head>
-<body data-spy="scroll" data-target=".fixed-top" >
-    
-  
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" id="fullpage">
+        <body data-spy="scroll" data-target=".fixed-top">
+                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" id="fullpage">
                    <div class="carousel-inner">
                        <div class="carousel-item active">
                            <img id="img-product"class="d-block w-100" src="<?=base_url('assets\img\product\new.png');?>" alt="First slide" style="width: 100%;  height: auto;">
@@ -50,20 +50,107 @@
                         </div>
                       </div>
                  </div>
-    <!-- Footer -->
-    <div class="footer" >
+    <!-- Introduction -->
+    <section class="pt-5" id="product" style="background-color: #1d3c51;" >
+    <div class="container wow fadeInUp">
+      <div class="branch-title text-center mb-3">
+        <h2 style="color:#ffffff;">PRODUCT</h2>
+      </div>
+      <div class="branch-p ab-bottom wow fadeInUp">
+        <div class="bra-img wow fadeInUp">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 pro-bottom" >
+               <div class="hover01 column">
+                  <figure> 
+                    <div class="d-flex  justify-content-center">
+                    <a class="nav-link page-scroll" href="<?=base_url('#');?>"><img src="<?=base_url('assets/img/icon/icon1.png');?>" class="img-fluid" alt="Responsive image">
+                        </div>
+                        <div class="d-flex  justify-content-center">
+                          <h6 id="product2"  class="card-title mt-5">Dressing tabla</h6>
+                    </a>
+                    </div>
+                   </figure>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 pro-bottom" >
+              <div class="hover01 column">
+               
+                  <figure>
+                   
+                        <div class="d-flex  justify-content-center wow slideInLeft">
+                        <a class="nav-link page-scroll" href="<?=base_url('#');?>"><img src="<?=base_url('assets/img/icon/icon2.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+                        </div>
+                        <div class="d-flex  justify-content-center">
+                        <h6 id="product2" class=" card-title mt-5 ">Dining table</h6>
+                     </a>
+                     </div>
+                  </figure>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 pro-bottom" >
+              <div class="hover01 column">
+                  <figure>
+                      
+                      <div class="d-flex  justify-content-center wow slideInLeft">
+                      <a class="nav-link page-scroll" href="<?=base_url('product/category');?>"><img src="<?=base_url('assets/img/icon/icon3.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+                        </div> 
+                        <div class="d-flex justify-content-center">
+                        <h6 id="product2" class="card-title mt-5 ">Chair</h6></a>
+                    </a>
+                    </div>
+                  </figure>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 pro-bottom" >
+              <div class="hover01 column">
+                  <figure>
+                        <div class="d-flex  justify-content-center ">
+                        <a class="nav-link page-scroll" href="<?=base_url('#');?>"><img src="<?=base_url('assets/img/icon/icon4.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+                        </div>
+                        <div class="d-flex  justify-content-center">
+                        <h6 id="product2" class=" card-title mt-5 ">Stool</h6>
+                     </a>
+                     </div>
+                  </figure>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <section>
+   <div id="product_2">
+    <img src="<?=base_url('assets/img/product/1.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+     </div>
+
+     <div id="product_2">
+     <img src="<?=base_url('assets/img/product/2.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+     </div>
+
+     <div id="product_3">
+     <img src="<?=base_url('assets/img/product/3.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+     </div>
+
+     <div id="product_4">
+     <img src="<?=base_url('assets/img/product/4.png');?>" class="img-responsive" style="width: 100%;  height: auto;">
+     </div>
+   </section>
+  
+       <!-- Footer -->
+       <div class="footer" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                 <div class="d-flex justify-content-center">
-                <img class="d-block w-100" src="<?=base_url('assets\img\logo\logo.jpeg');?>" alt="Third slide" id="logo-footer">
+                <img class="d-block w-100" src=" <?=base_url('assets\img\logo\logo.jpeg');?>" alt="Third slide" id="logo-footer">
                 
                 </div>
                 <h5 id="footer">Follow Me</h5>
-
+               
                     <div class="social-container">
                         <span class="fa-stack">
-                            <a href="assets/img/icon/f.png">
+                            <a href="<?=base_url('assets/img/icon/f.png');?>">
                             <a href="https://www.facebook.com/Shirahomeliving/" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x"></i>
                             </a>
@@ -95,22 +182,12 @@
     </div> <!-- end of footer -->  
     <!-- end of footer -->
 
+ 
     <script src="<?=base_url('assets/frontend/js/jquery.min.js');?>"></script> 
     <script src=" <?=base_url('assets/frontend/js/bootstrap.min.js');?>"></script> 
     <script src="<?=base_url('assets/frontend/js/jquery.easing.min.js');?>"></script> 
     <script src=" <?=base_url('assets/frontend/js/swiper.min.js');?>"></script> 
     <script src=" <?=base_url('assets/frontend/js/jquery.magnific-popup.js');?>"></script> 
     <!-- <script src="assets/frontend/js/jquery.magnific-popup.js"></script>  -->
-    <script type="text/javascript">
-    
-// new fullpage('#fullpage', {
-// 	//options here
-// 	autoScrolling:true,
-// 	scrollHorizontally: true,
-//   navigation:true,
- 
-
-// });
-</script>
 </body>
 </html>

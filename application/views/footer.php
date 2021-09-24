@@ -1,46 +1,44 @@
-<footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 footer-info">
-            <div class="text-center">
-            <img src="<?=base_url('./assets/img/logo.png');?>" alt="" class="footer-logo">
-          </div>
-            <p>ที่ตั้ง : สำนักงานใหญ่ เลขที่ 500/12 หมู่บ้านวงศ์ทอง <br>
-              หมู่ที่ 1 ถนนฐานุตดมอนุสรณ์ ตำบลควนลัง <br>
-              อำเภอหาดใหญ่ จังหวัดสงขลา 90110
-              </p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-links text-center ">
-            <h4>Site Map</h4>
-            <ul >
-              <li><a href="#">หน้าแรก</a></li>
-              <li><a href="#">เกี่ยวกับเรา</a></li>
-              <li><a href="#">รีวิวสินค้า</a></li>
-              <li><a href="#">วิธีการสั่งซื้อสินค้า</a></li>
-              <li><a href="#">ติดต่อเรา</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-contact text-center">
-            <h4>Follow Me</h4>
-            
-            <div class="social-links ">
-              <a target=”_blank” href="https://www.facebook.com/Gloves-PFS-%E0%B8%88%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%96%E0%B8%B8%E0%B8%87%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%8A%E0%B8%99%E0%B8%B4%E0%B8%94-%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B8%81-%E0%B8%AA%E0%B9%88%E0%B8%87-100502791628735">
-                <img src="<?=base_url('./assets/img/icon/icon-f.png');?>" alt="" class="icons">
-              </a>
-              <a target=”_blank” href="http://line.me/ti/p/~0980842491">
-                <img src="<?=base_url('./assets/img/icon/icon-l.png');?>" alt="" class="icons">
-              </a>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="copyright">
-          Copyright &copy; 2021 - All Rights Reserved.
-       </div>
-      </div>
-    </div>
-  </footer><!-- #footer -->
+      <!-- Footer -->
+      <div class="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="d-flex justify-content-center">
+                <img class="d-block w-100" src=" <?=base_url('assets\img\logo\logo.jpeg');?>" alt="Third slide" id="logo-footer">
+                
+                </div>
+                <h5 id="footer">Follow Me</h5>
+               
+                    <div class="social-container">
+                        <span class="fa-stack">
+                            <a href="<?=base_url('assets/img/icon/f.png');?>">
+                            <a href="https://www.facebook.com/Shirahomeliving/" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                            <a href="https://liff.line.me/1645278921-kWRPP32q?accountId=shirafurniture&openerPlatform=native&openerKey=talkroom%3Amessage#mst_challenge=TaZYnYLV-mHHNzzy8FP-rxRrI1KuodPmOMpKvtuu-iw" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-line fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                            <a href="https://www.instagram.com/shirafurniture/" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-youtube fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <p class="copyright" Styles="text-align: center;">Copyright © SHIRA FURNITURE , All rights reserved.</p>
+                    </div> <!-- end of social-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->

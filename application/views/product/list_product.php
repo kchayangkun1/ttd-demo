@@ -5,142 +5,220 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Gloves PFS </title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="SHIRA Furniture">
+    <meta name="author" content="SHIRA Furniture">
 
-  <!-- Favicons -->
-  <!--  -->
-  <link href="<?=base_url('./assets/img/logo.png');?>" rel="icon">
-  <link href="<?=base_url('./assets/img/logo.png');?>" rel="apple-touch-icon">
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
-    rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <!--  -->
-  <link href="<?=base_url('./assets/css/bootstrap.min.css');?>" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="<?=base_url('./assets/css/font-awesome.min.css');?>" rel="stylesheet">
-  <link href="<?=base_url('./assets/css/animate.css');?>" rel="stylesheet">
-  <link href="<?=base_url('./assets/lib/ionicons/css/ionicons.min.css');?>" rel="stylesheet">
-  <link href="<?=base_url('./assets/lib/owlcarousel/assets/owl.carousel.min.css');?>" rel="stylesheet">
-  <link href="<?=base_url('./assets/lib/lightbox/css/lightbox.min.css');?>" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="<?=base_url('./assets/css/style.css');?>" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
- <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZL2NTSB96"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5ZL2NTSB96');
-</script>
+    <!-- Webpage Title -->
+    <title>CHAIR | PRODUCT | DETAIL</title>
+    
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="<?=base_url('assets/frontend/css/bootstrap.css');?>" rel="stylesheet">
+    <link href="<?=base_url('assets/frontend/css/fontawesome-all.css');?>" rel="stylesheet">
+    <link href="<?=base_url('assets/frontend/css/swiper.css');?>" rel="stylesheet">
+	<link href="<?=base_url('assets/frontend/css/magnific-popup.css');?>" rel="stylesheet">
+	<link href="<?=base_url('assets/frontend/css/styles.css');?>" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="<?=base_url('assets/img/logo/logo.jpeg');?>">
 </head>
-
-<body>
-  <?php 
-    $this->load->model('Cart_model');
-?>
-    <section id="intro" class="clearfix">
-        <div class="container">
-            <header class="section-header">
-                <h3><?=$caties_list[0]['cate_id']; ?></h3>
-            </header>
-        </div>
-    </section>
-    <!-- #intro -->
-
-    <main id="main">
-        <section id="product" class="section-product">
-            <div class="container">
-
-                <div class="text-center reviewp-tb search-p">
-                    <input type="text" id="searchText" onkeyup="myFunction()" placeholder="ค้นหาสินค้า">
-                    <button type="text"><i class="fa fa-search"></i></button>
-                </div>
-                <div class="row productp">
-                    <ul>
-                        <?php foreach($products_list as $products_detail) : ?>
-                        <li>
-                            <div class="col-md-3 mar-b">
-                                <div class="card">
-                                    <a href="<?=base_url('product/detail/'.$products_detail['id']);?>">
-                                        <div class="product-text">
-                                            <img src="<?=base_url('./assets/images/product/cover/'.$products_detail['id'].'/'.$products_detail['img_cover']);?>" alt="" class="img-responsive">
-                                            <h2><?=$products_detail['name']; ?></h2>
-                                            <!-- <p>Size S M L</p> -->
-                                            <h1><?=number_format($products_detail['price'], 2); ?>.-</h1>
-                                        </div>
-                                    </a>
-                                </div>
+    <!-- Introduction -->
+    <body data-spy="scroll" data-target=".fixed-top">
+                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" id="fullpage">
+                   <div class="carousel-inner">
+                       <div class="carousel-item active">
+                           <img id="img-product"class="d-block w-100" src="<?=base_url('assets\img\product\new.png');?>" alt="First slide" style="width: 100%;  height: auto;">
+                        </div>
+                           <div class="carousel-item">
+                              <img  id="img-product" class="d-block w-100" src="<?=base_url('assets\img\product\2dinning.png');?>" alt="Second slide" style="width: 100%;  height: auto;">
                             </div>
-                        </li>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
-                <!-- pagination -->
-            <div class="row mt-4 mb-4">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <div class="container">
-                        <?=$pagination;?>
+                                <div class="carousel-item">
+                                     <img  id="img-product" class="d-block w-100" src="<?=base_url('assets\img\product\3chiar.png');?>" alt="Third slide" style="width: 100%;  height: auto;">
+                                </div>
+                             </div>
+                            <div class="carousel-item">
+                          <img  id="img-product" class="d-block w-100" src="<?=base_url('assets\img\product\4stool.png');?>" alt="Third slide" style="width: 100%;  height: auto;">
+                        </div>
+                      </div>
+                 </div>
+    <!-- product -->
+    <section class="pt-5 pb-5" id="invent-port">
+    <div class="container wow fadeInUp" align="center">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="branch-title text-center mb-3">
+          </div>
+        </div>
+      </div>
+      <div class="row w-100" align="center">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                          <a href="<?=base_url('product/detail');?>">
+                        <!-- <a href="<?=base_url('assets/images/char-product/ch11.png');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;"> -->
+                          <img src="<?=base_url('assets/images/char-product/ch11.png');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a> 
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
                     </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch2.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px;">
+                          <img src="<?=base_url('assets/images/char-product/ch2.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch3.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px;">
+                          <img src="<?=base_url('assets/images/char-product/ch3.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+          <div class="row w-100" align="center">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch4.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; ">
+                          <img src="<?=base_url('assets/images/char-product/ch4.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch5.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;">
+                          <img src="<?=base_url('assets/images/char-product/ch5.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch6.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;">
+                          <img src="<?=base_url('assets/images/char-product/ch6.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="row w-100" align="center">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch7.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;">
+                          <img src="<?=base_url('assets/images/char-product/ch7.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch8.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;">
+                          <img src="<?=base_url('assets/images/char-product/ch8.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="hover01 column">
+                      <figure>
+                        <a href="<?=base_url('assets/images/char-product/ch9.jpeg');?>" data-toggle="lightbox" data-gallery="gallery" class="img-rounded" style=" border-radius:20px; width: 100%;">
+                          <img src="<?=base_url('assets/images/char-product/ch9.jpeg');?>" class="img-rounded" style=" border-radius:20px; width:100%;">
+                        </a>
+                      </figure>
+                      <h4 id="product-chair-text" style="color:##000000;">CHAIR</h4>
+                    </div>
+                  </div>
+      </div>
+    </div>
+  </section>
+       <!-- Footer -->
+       <div class="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="d-flex justify-content-center">
+                <img class="d-block w-100" src=" <?=base_url('assets\img\logo\logo.jpeg');?>" alt="Third slide" id="logo-footer">
+                
                 </div>
-            </div>
-            <!-- end -->
-            </div>
-        </section><!-- #product -->
-    </main>
-    <?php $this->load->view('footer'); // footer ?>
-
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- JavaScript Libraries -->
-  <script src="<?=base_url('./assets/lib/jquery/jquery.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/jquery/jquery-migrate.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/easing/easing.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/mobile-nav/mobile-nav.js');?>"></script>
-<script src="<?=base_url('./assets/lib/wow/wow.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/waypoints/waypoints.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/counterup/counterup.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/owlcarousel/owl.carousel.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/isotope/isotope.pkgd.min.js');?>"></script>
-<script src="<?=base_url('./assets/lib/lightbox/js/lightbox.min.js');?>"></script>
-<!-- Contact Form JavaScript File -->
-<script src="<?=base_url('./assets/contactform/contactform.js');?>"></script>
-
-<!-- Template Main Javascript File -->
-<script src="<?=base_url('./assets/js/main.js');?>"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-
+                <h5 id="footer">Follow Me</h5>
+               
+                    <div class="social-container">
+                        <span class="fa-stack">
+                            <a href="<?=base_url('assets/img/icon/f.png');?>">
+                            <a href="https://www.facebook.com/Shirahomeliving/" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                            <a href="https://liff.line.me/1645278921-kWRPP32q?accountId=shirafurniture&openerPlatform=native&openerKey=talkroom%3Amessage#mst_challenge=TaZYnYLV-mHHNzzy8FP-rxRrI1KuodPmOMpKvtuu-iw" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-line fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                            <a href="https://www.instagram.com/shirafurniture/" target="_blank"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-youtube fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <p class="copyright" Styles="text-align: center;">Copyright © SHIRA FURNITURE , All rights reserved.</p>
+                    </div> <!-- end of social-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+    <script src="<?=base_url('assets/frontend/js/jquery.min.js');?>"></script> 
+    <script src=" <?=base_url('assets/frontend/js/bootstrap.min.js');?>"></script> 
+    <script src="<?=base_url('assets/frontend/js/jquery.easing.min.js');?>"></script> 
+    <script src=" <?=base_url('assets/frontend/js/swiper.min.js');?>"></script> 
+    <script src=" <?=base_url('assets/frontend/js/jquery.magnific-popup.js');?>"></script> 
+    <script src="assets/frontend/js/jquery.magnific-popup.js"></script> 
     <script>
-        function searchBar() {
-            $('#searchText').on('keyup', function () {
-                let searchString = $(this).val();
-                $("li div").each(function (index, value) {
-
-                    currentName = $(value).text()
-                    if (currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
-                        $(value).show();
-                    } else {
-                        $(value).hide();
-                    }
-                });
-            });
-        };
-        searchBar();
+        $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox({ wrapping: false });
+});
     </script>
 </body>
-
 </html>

@@ -30,7 +30,109 @@ Colors:
 - Body text - dark gray #6b747b
 ******************************************/
 
-
+@font-face {
+	font-family: 'Kanit-Bold';
+	src: url('../assets/fonts/Kanit-Bold.ttf') format('ttf2'),
+		 url('../assets/fonts/Kanit-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Kanit-Bold';
+	src: url('../assets/fonts/Kanit-Bold.woff') format('woff2'),
+	  url('../assets/fonts/Kanit-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Kanit-Bold';
+	src: url('../assets/fonts/Kanit-Bold.woff2') format('woff2'),
+	  url('../assets/fonts/Kanit-Bold.woff2') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Kanit-Regular';
+	src: url('../assets/fonts/Kanit-Regular.ttf') format('ttf2'),
+	  url('../assets/fonts/Kanit-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Kanit-Regular';
+	src: url('../assets/fonts/Kanit-Regular.woff') format('woff2'),
+	  url('../assets/fonts/Kanit-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Kanit-Regular';
+	src: url('../assets/fonts/Kanit-Regular.woff2') format('woff2'),
+	  url('../assets/fonts/Kanit-Regular.woff2') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'Ethnocentricrg';
+	src: url('../fonts/ethnocentricrg.ttf2') format('ttf2'),
+		 url('../fonts/ethnocentricrg.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-Bold';
+	src: url('../fonts/SukhumvitSet-Bold.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-Light';
+	src: url('../fonts/SukhumvitSet-Light.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-Light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-SemiBold';
+	src: url('../fonts/SukhumvitSet-SemiBold.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-SemiBold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-Medium';
+	src: url('../fonts/SukhumvitSet-Medium.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-Thin';
+	src: url('../fonts/SukhumvitSet-Thin.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-Thin.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: 'SukhumvitSet-Text';
+	src: url('../fonts/SukhumvitSet-Text.woff2') format('woff2'),
+	  url('../fonts/SukhumvitSet-Text.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  }
 /**************************/
 /*     General Styles     */
 /**************************/
@@ -78,7 +180,7 @@ h4 {
 }
 
 h5 {
-	color: #252c38;
+	color: #ffffff;
 	font-weight: 700;
 	font-size: 1.25rem;
 	line-height: 1.625rem;
@@ -393,7 +495,11 @@ input[type='checkbox'] {
 	background-color: transparent;
 	color: #252c38;
 }
-
+#product-chair-text{
+	/* font-family: 'SukhumvitSet-Text'; */
+	letter-spacing:2px;
+	margin-bottom: 20px;
+}
 /* Fade-move Animation For Details Lightbox - Magnific Popup */
 /* at start */
 .my-mfp-slide-bottom .zoom-anim-dialog {
@@ -436,15 +542,45 @@ input[type='checkbox'] {
 }
 /* end of fade-move animation for details lightbox - magnific popup */
 
+#product2{
+	color: #eac5b1;
+	font-family: 'SukhumvitSet-Medium';
+	
+}
+#product_1{
+	width: 100%;
+	/* height: 400px;
+	background-size: 100% 100%; */
+	
+  }
+  #card-body1{
+	margin: 0;
+    justify-content: center;
+    /* margin-left: 46rem; */
+    position: absolute;
+    margin-top: -23rem;
+	box-sizing: 10rem;
+  }
+  .mySlides {display:none}
+  .w3-left, .w3-right, .w3-badge {cursor:pointer}
+  .w3-badge {height:13px;width:13px;padding:0}
+
+  #product-chair-productdetail-h{
+	font-family: 'SukhumvitSet-Light';
+  }
+  #product-chair-productdetail{
+	font-family: 'Kanit-Regular';
+  }
 
 /**********************/
 /*     Navigation     */
 /**********************/
 .navbar {
-	background-color: #f1f9fc;
+	/* background-color: #f1f9fc; */
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
+	
 }
 
 .navbar .navbar-brand {
@@ -453,8 +589,8 @@ input[type='checkbox'] {
 }
 
 .navbar .logo-image img {
-    width: 133px;
-	height: 32px;
+	width: 100%;
+    height: 100px;
 }
 
 .navbar .logo-text {
@@ -480,6 +616,15 @@ input[type='checkbox'] {
 	transition: transform .3s ease-in-out, visibility .3s ease-in-out;
 	transition: transform .3s ease-in-out, visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
+#product1{
+	width: 100%;
+    height: auto;
+    margin-top: -7rem;
+}
+#product4{
+	height: auto;
+    margin-bottom: -7rem;
+}
 
 .offcanvas-collapse.open {
 	visibility: visible;
@@ -495,15 +640,26 @@ input[type='checkbox'] {
 .navbar .nav-item .nav-link {
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
-	color: #6b747b;
+	color: #ffffff;
 	text-decoration: none;
 	transition: all 0.2s ease;
+	 /* margin-left: 8rem; */
+	 text-align: center;
+	/* background: linear-gradient(
+	45deg, #c1c1c1, transparent);
+    margin-top: 6px;
+	text-align: center;  */
+	
 }
+/* .navbar-brand{
+	border-bottom: 5px solid red;
+} */
+
 
 .navbar .nav-item.dropdown.show .nav-link,
 .navbar .nav-item .nav-link:hover,
 .navbar .nav-item .nav-link.active {
-	color: #ff6e84;
+	color: #ffffff;
 }
 
 /* Dropdown Menu */
@@ -614,7 +770,7 @@ input[type='checkbox'] {
 /*     Introduction     */
 /************************/
 .basic-1 {
-	padding-top: 1rem;
+	padding-top: 4rem;
 	padding-bottom: 3.5rem;
 	text-align: center;
 }
@@ -1115,12 +1271,22 @@ input[type='checkbox'] {
 /*     Footer     */
 /******************/
 .footer {
-	padding-top: 6rem;
-	padding-bottom: 3rem;
-	background: linear-gradient(rgba(255, 255, 255, 1), rgba(197, 234, 249, 1));
+	/* padding-top: 6rem; */
+	/* padding-bottom: rem; */
+	background:#1d3c51;
 	text-align: center;
 }
-
+#logo-footer{
+	width: 10%;
+	margin-top: 20px;
+    margin-bottom: 11px;
+}
+#footer-text{
+	padding-top: 1px;
+}
+.copyright .statement {
+	text-align:center;
+}
 .footer a {
 	text-decoration: none;
 }
@@ -1142,26 +1308,29 @@ input[type='checkbox'] {
 }
 
 .footer .fa-stack .fa-stack-2x {
-	color: #ffffff;
+	color: #eac5b1;
 	transition: all 0.2s ease;
 }
 
 .footer .fa-stack:hover .fa-stack-1x {
-	color: #ffffff;
+	color: #252c38;
 }
 
 .footer .fa-stack:hover .fa-stack-2x {
-    color: #252c38;
+    color: #ffffff;
 }
-
+#about-us1{
+	padding-top: 10rem;
+}
 
 /*********************/
 /*     Copyright     */
 /*********************/
 .copyright {
-	padding-top: 1.5rem;
-	background-color: #c5eaf9;
+	
+	color: #ffffff;
 	text-align: center;
+	font-size: 13px;
 }
 
 .copyright a {
@@ -1169,6 +1338,52 @@ input[type='checkbox'] {
 }
 
 
+h4 {
+	margin: 20px 10px 10px;
+}
+p {
+	margin: 10px;
+}
+
+/* body {
+    background-color: #7B1FA2
+} */
+
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+}
+
+.carousel-item img {
+    width: 80%
+}
 /******************************/
 /*     Back To Top Button     */
 /******************************/
@@ -1290,12 +1505,13 @@ a:hover.back-to-top {
 		background-color: transparent;
 		border-bottom: none;
 		transition: all 0.2s;
+		
 	}
 
 	.navbar.top-nav-collapse {
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
-		background-color: #f1f9fc;
+	
 	}
 
 	.offcanvas-collapse {
@@ -1316,7 +1532,7 @@ a:hover.back-to-top {
 		transform: none;
 	}
 
-	.navbar .navbar-nav {
+		/*.navbar .navbar-nav {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
@@ -1338,7 +1554,7 @@ a:hover.back-to-top {
 	.navbar .app-store-icons {
 		margin-left: 0.875rem;
 	}
-	/* end of navigation */
+ end of navigation */
 
 
 	/* Header */
@@ -1488,19 +1704,17 @@ a:hover.back-to-top {
 
 
 	/* Copyright */
-	.copyright {
+	/* .copyright {
 		text-align: left;
-	}
+	} */
 
 	.copyright .list-unstyled li {
 		display: inline-block;
 		margin-right: 1rem;
 	}
 
-	.copyright .statement {
-		text-align: right;
-	}
-	/* end of copyright */
+	/* 
+	end of copyright */
 
 
 	/* Extra Pages */
@@ -1515,7 +1729,7 @@ a:hover.back-to-top {
 		margin-left: 1rem;
 	}
 	/* end of extra pages */
-}
+
 /* end of min-width 992px */
 
 
@@ -1650,4 +1864,48 @@ a:hover.back-to-top {
 	}
 	/* end of extra pages */
 }
-/* end of min-width 1200px */
+}
+
+/* @media only screen and  */
+@media only screen and (max-width: 375px) and (min-width: 812px){
+
+	  .d-block {
+		display: block !important;
+		width: 100%;
+		height: auto;
+		margin-top: 14rem;
+	}
+	   /* #about-tex{
+		 padding-top: 100%;
+	   } */
+	   
+	   #about-us{
+		justify-content: center;
+	   }
+		#about-us{
+		  flex-direction: column;
+		}
+		#about_img{
+		  position: relative;
+		}
+		#about{
+		  width: 50%;
+		  margin-top: 10rem;
+		}
+	   
+		.img-logo {
+		  width: 30%;
+		}
+	   #about{
+		 width: 40%;
+	   }
+	   #banner_img{
+		 width: 100%;
+		 margin-top: 25%;
+	   }
+	   #footer-1{
+		 font-size: 10px;
+	   }
+	 
+}
+
